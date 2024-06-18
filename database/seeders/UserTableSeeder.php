@@ -14,10 +14,13 @@ class UserTableSeeder extends Seeder
     public function run(): void
     {
         //
-        User::create([
-            'name' => 'Alfonso J. Ferrando Puigcerver',
-            'email' => 'ajfp2@uoc.edu',
-            'password' => bcrypt('12341234')
-        ]);
+        // User::create([
+        //     'name' => 'Alfonso J. Ferrando Puigcerver',
+        //     'email' => 'ajfp2@uoc.edu',
+        //     'password' => bcrypt('12341234')
+        // ]);
+
+        // model factories
+        User::factory(3)->create();
     }
 }

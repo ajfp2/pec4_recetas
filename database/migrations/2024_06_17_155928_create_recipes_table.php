@@ -26,6 +26,7 @@ return new class extends Migration
             //Referencia a Tabla Autor
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users_pec4');
+            // $table->foreignId("user_id")->constrained("users_pec4");
 
             $table->timestamps();
         });
