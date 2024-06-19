@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 
-class RecetasController extends Controller
+class RecipeController extends Controller
 {
-    //
+    //Home
     public function index(){
-        $recipes = Recipe::all();
+        $recipes = Recipe::latest()->take(5)->get();
         return view('home')->with(compact('recipes'));
     }
 }
