@@ -24,7 +24,7 @@ class RecipesTableSeeder extends Seeder
 
         foreach ($recipes as $rec) {
             $cat = Category::query()->inRandomOrder()->take(3)->pluck('id');
-            $rec->category()->attach($cat);
+            $rec->categories()->attach($cat);
         }
     }
 }

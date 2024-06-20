@@ -9,7 +9,13 @@ class RecipeController extends Controller
 {
     //Home
     public function index(){
-        $recipes = Recipe::latest()->take(5)->get();
+
+        $recipes = Recipe::take(5)->orderBy('fecha', 'desc')->get();
+        // foreach($recipes as $rec){
+        //     $rec['category']=$rec->categories();
+        // }
+        // $recipes3 = Recipe::take(3)->latest()->get();
+        // $recipes = array_merge($recipes2, $recipes3);
         return view('home')->with(compact('recipes'));
     }
 }

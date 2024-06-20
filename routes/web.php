@@ -4,15 +4,20 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/api', function ($id=3) {
+    return $id;
+});
+
+
+
 Route::get('/', [RecipeController::class, 'index'])->name('home');
+
+
 Route::get('/home', [RecipeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [RecipeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
 
 
 

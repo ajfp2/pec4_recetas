@@ -15,19 +15,20 @@
 
 
     <!-- Container wrapper -->
-<div class="container-fluid p-3 main">
+<div class="container p-3">
     <figure class="figure">
-        <img src="views/images/slider1.jpg" class="figure-img img-fluid rounded" alt="imagen principal">
+        <img src="images/slider1.jpg" class="figure-img img-fluid rounded" alt="imagen principal">
         <figcaption class="figure-caption text-end">No sabes que cocinar??</figcaption>
     </figure>
     <h1 class="mt-2">Últimas 5 Recetas Añadidas!</h1>
     <div class="row">
         @foreach($recipes as $recipe)
+        <!-- <pre> {{ var_dump($recipe->category); }}</pre> -->
             <div class="col">
                 <div class="card">
                     <img src="{{ $recipe->imagen }}" class="card-img-top" alt="Imagen receta" style="max-width: 450px;">
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#">{{ $recipe->nombre }}</a></h4>
+                        <h4 class="card-title"><a href="#">{{ $recipe->nombre }}--{{ $recipe->id }}</a></h4>
                         <p class="card-text text-muted text-end">                            
                             <small>Publicada el {{ date("d/m/Y H:i", strtotime($recipe->fecha)) }}</small>
                             <i class="fa fa-calendar-alt pl-1"></i>
@@ -40,14 +41,14 @@
                             ?>
                         {{ $recipe->instrucciones }}
                         </p>
-                        <p class="card-text text-end"><small class="text-muted">Creada por yooooooooo</small> </p>
+                        <p class="card-text text-end"><small class="text-muted">Creada por {{ $recipe->users }}</small> </p>
                     </div>
                     <?php 
                         $colorBG_tmp = "primary";//($item["tiempo"] <= 45) ? "success": (($item["tiempo"] <= 60) ? "primary" : "warning");
                         $colorBG_Nivel = "warning";//($item["dificultad"] == "Baja") ? "success": (($item["dificultad"] == "Mediana") ? "primary" : "warning");
                     ?>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Categoria: <?php echo "<span class='badge bg-secondary float-right'>vegaaanaaa</span></li>"; ?>
+                        <li class="list-group-item">Categoria: {{ $recipe->categories }} <?php echo "<span class='badge bg-secondary float-right'>vegaaanaaa</span></li>"; ?>
                         <li class="list-group-item">Tiempo preparación: <?php echo "<span class='badge bg-$colorBG_tmp float-right'>150</span></li>"; ?>
                         <li class="list-group-item">Nivel dificultad: <?php echo "<span class='badge bg-$colorBG_Nivel float-right'>molta</span></li>"; ?>
                         <li class="list-group-item text-end">
