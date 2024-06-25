@@ -12,7 +12,7 @@ class Recipe extends Model
 
     protected $table = "recipes_pec4";
 
-    public function users(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 

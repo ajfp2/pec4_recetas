@@ -21,15 +21,15 @@
                             {{ __('Home') }}
                         </x-nav-link>
                     @endauth
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('api')" target="_blank">
+                    <x-nav-link :href="route('api.recipes', ['page' => 1])" :active="request()->routeIs('api.recipes')" target="_blank">
                         {{ __('API_recipes') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('api')" target="_blank">
+                    <x-nav-link :href="route('api.recipe', ['id' => 1])" :active="request()->routeIs('api.recipe')" target="_blank">
                         {{ __('API_recipe') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('api')" target="_blank">
+                    <x-nav-link :href="route('api.category', ['id' => 1, 'page' => 2])" :active="request()->routeIs('api.category')" target="_blank">
                         {{ __('API_category') }}
                     </x-nav-link>
 
